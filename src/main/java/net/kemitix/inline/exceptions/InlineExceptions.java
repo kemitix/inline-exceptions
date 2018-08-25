@@ -55,7 +55,7 @@ public class InlineExceptions {
      *
      * @throws InlineException if error configuring {@link InlineClause}
      */
-    @SuppressWarnings("UseSpecificCatch")
+    @SuppressWarnings("illegalcatch")
     public static InlineClause doThrow(
             final Class<? extends Exception> throwable,
             final String message) throws InlineException {
