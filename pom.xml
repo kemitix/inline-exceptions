@@ -15,6 +15,8 @@
     <description>Optionally throw exceptions without adding an if-then branch that affects code coverage</description>
 
     <properties>
+        <tiles-maven-plugin.version>2.11</tiles-maven-plugin.version>
+        <kemitix-tiles.version>0.9.0</kemitix-tiles.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -39,4 +41,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>${tiles-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <tiles>
+                        <tile>net.kemitix.tiles:all:${kemitix-tiles.version}</tile>
+                    </tiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
