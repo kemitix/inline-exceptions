@@ -3,23 +3,23 @@
   Optionally throw exceptions without adding an if-then branch that affects code
   coverage.
 
-  [[https://oss.sonatype.org/content/repositories/releases/net/kemitix/mon][file:https://img.shields.io/nexus/r/https/oss.sonatype.org/net.kemitix/inline-exceptions.svg?style=for-the-badge]]
-  [[https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.kemitix%22%20AND%20a%3A%22mon%22][file:https://img.shields.io/maven-central/v/net.kemitix/inline-exceptions.svg?style=for-the-badge]]
+  [[https://oss.sonatype.org/content/repositories/releases/net/kemitix/inline-exceptions][file:https://img.shields.io/nexus/r/https/oss.sonatype.org/net.kemitix/inline-exceptions.svg?style=for-the-badge]]
+  [[https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.kemitix%22%20AND%20a%3A%22inline-exceptions%22][file:https://img.shields.io/maven-central/v/net.kemitix/inline-exceptions.svg?style=for-the-badge]]
 
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://img.shields.io/sonar/https/sonarcloud.io/net.kemitix%3Ainline-exceptions/coverage.svg?style=for-the-badge#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://img.shields.io/sonar/https/sonarcloud.io/net.kemitix%3Ainline-exceptions/tech_debt.svg?style=for-the-badge#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=sqale_rating#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=alert_status#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=reliability_rating#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=security_rating#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=sqale_index#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=vulnerabilities#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=bugs#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=code_smells#.svg]]
-  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Amon][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=ncloc#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://img.shields.io/sonar/https/sonarcloud.io/net.kemitix%3Ainline-exceptions/coverage.svg?style=for-the-badge#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://img.shields.io/sonar/https/sonarcloud.io/net.kemitix%3Ainline-exceptions/tech_debt.svg?style=for-the-badge#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=sqale_rating#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=alert_status#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=reliability_rating#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=security_rating#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=sqale_index#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=vulnerabilities#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=bugs#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=code_smells#.svg]]
+  [[https://sonarcloud.io/dashboard?id=net.kemitix%3Ainline-exceptions][file:https://sonarcloud.io/api/project_badges/measure?project=net.kemitix%3Ainline-exceptions&metric=ncloc#.svg]]
 
-  [[https://app.codacy.com/project/kemitix/mon/dashboard][file:https://img.shields.io/codacy/grade/24a45c5cb1a24ea6b54f4e1a61744ef1.svg?style=for-the-badge]]
-  [[http://i.jpeek.org/net.kemitix/mon/index.html][file:http://i.jpeek.org/net.kemitix/inline-exceptions/badge.svg]]
+  [[https://app.codacy.com/project/kemitix/inline-exceptions/dashboard][file:https://img.shields.io/codacy/grade/24a45c5cb1a24ea6b54f4e1a61744ef1.svg?style=for-the-badge]]
+  [[http://i.jpeek.org/net.kemitix/inline-exceptions/index.html][file:http://i.jpeek.org/net.kemitix/inline-exceptions/badge.svg]]
 
   Provides a method of throwing exceptions on certain conditions without adding an
   if-branch to the calling method.
