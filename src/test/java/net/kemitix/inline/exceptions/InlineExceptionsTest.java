@@ -11,7 +11,7 @@ public class InlineExceptionsTest {
 
     /**
      * Test that exception is thrown for
-     * {@link InlineExceptions.InlineClause#should() should(true)}.
+     * {@link InlineExceptions.InlineClause#should(boolean)} should(true)}.
      *
      * @throws InlineException                if there is an error in the test
      * @throws ArrayIndexOutOfBoundsException is test passes
@@ -28,7 +28,7 @@ public class InlineExceptionsTest {
 
     /**
      * Test that exception is not thrown for
-     * {@link InlineExceptions.InlineClause#should() should(false)}.
+     * {@link InlineExceptions.InlineClause#should(boolean) should(false)}.
      *
      * @throws InlineException                if there is an error in the test
      * @throws ArrayIndexOutOfBoundsException is test fails
@@ -47,7 +47,7 @@ public class InlineExceptionsTest {
 
     /**
      * Test that exception is thrown for
-     * {@link InlineExceptions.InlineClause#unless() unless(false)}.
+     * {@link InlineExceptions.InlineClause#unless(boolean) unless(false)}.
      *
      * @throws InlineException                if there is an error in the test
      * @throws ArrayIndexOutOfBoundsException is test passes
@@ -64,7 +64,7 @@ public class InlineExceptionsTest {
 
     /**
      * Test that exception is not thrown for
-     * {@link InlineExceptions.InlineClause#unless() unless(true)}.
+     * {@link InlineExceptions.InlineClause#unless(boolean) unless(true)}.
      *
      * @throws InlineException                if there is an error in the test
      * @throws ArrayIndexOutOfBoundsException is test fails
