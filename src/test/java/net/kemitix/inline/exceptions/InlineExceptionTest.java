@@ -1,46 +1,31 @@
 package net.kemitix.inline.exceptions;
 
+import org.assertj.core.api.WithAssertions;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * Tests for {@link InlineException}.
- *
- * @author pcampbell
- */
-public class InlineExceptionTest {
+public class InlineExceptionTest implements WithAssertions {
 
-    /**
-     * Class under test.
-     */
-    private InlineException inlineException;
-
-    /**
-     * Test constructor with a null cause.
-     */
     @Test
     public void testNullCause() {
         //given
-        Exception cause = null;
+        final Exception cause = null;
         //when
-        inlineException = new InlineException(cause);
+        final InlineException inlineException = new InlineException(cause);
         //then
-        assertNull(inlineException.getCause());
+        assertThat(inlineException.getCause()).isNull();
     }
 
-    /**
-     * Test constructor with a non-null cause.
-     */
     @Test
     public void testNonNullCause() {
         //given
-        Exception cause = new ArrayIndexOutOfBoundsException();
+        final Exception cause = new ArrayIndexOutOfBoundsException();
         //when
-        inlineException = new InlineException(cause);
+        final InlineException inlineException = new InlineException(cause);
         //then
-        assertEquals(cause, inlineException.getCause());
+        assertThat(inlineException.getCause()).isSameAs(cause);
     }
 
 }
