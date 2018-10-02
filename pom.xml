@@ -19,6 +19,7 @@
         <kemitix-tiles.version>0.9.0</kemitix-tiles.version>
         <junit.version>4.12</junit.version>
         <kemitix-checkstyle.version>4.1.1</kemitix-checkstyle.version>
+        <mon.version>1.0.0</mon.version>
         <assertj.version>3.11.1</assertj.version>
     </properties>
 
@@ -36,6 +37,11 @@
     </scm>
 
     <dependencies>
+        <dependency>
+            <groupId>net.kemitix</groupId>
+            <artifactId>mon</artifactId>
+            <version>${mon.version}</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
