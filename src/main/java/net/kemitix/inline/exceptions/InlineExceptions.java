@@ -21,6 +21,14 @@
 
 package net.kemitix.inline.exceptions;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import net.kemitix.mon.lazy.Lazy;
+
+import java.util.function.Supplier;
+
 /**
  * Provides a method of throwing exceptions on certain conditions without adding
  * an if-branch to the calling method.
@@ -35,68 +43,46 @@ package net.kemitix.inline.exceptions;
  *
  * @author pcampbell
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@SuppressWarnings("hideutilityclassconstructor")
 public class InlineExceptions {
-
-    /**
-     * Don't instantiate utility class.
-     */
-    protected InlineExceptions() {
-        throw new UnsupportedOperationException();
-    }
 
     /**
      * Creates an inline clause that will throw in instance of the supplied
      * class with the message.
      *
-     * @param throwable the throwable class
-     * @param message   the message to add the the throwable
+     * @param source the supplier for the exception to throw
+     * @param <T> the type of the exception
      *
      * @return the inline clause
-     *
-     * @throws InlineException if error configuring {@link InlineClause}
      */
-    @SuppressWarnings("illegalcatch")
-    public static InlineClause doThrow(
-            final Class<? extends Exception> throwable,
-            final String message) throws InlineException {
-        try {
-            return new InlineClause(
-                    throwable.getConstructor(String.class)
-                    .newInstance(message));
-        } catch (Exception ex) {
-            throw new InlineException(ex);
-        }
+    public static <T extends Throwable> InlineClause<T> doThrow(@NonNull final Supplier<T> source) {
+            return new InlineClause<>(Lazy.of(source));
     }
 
     /**
      * An inline clause that will throw an exception if the clause matches.
+     *
+     * @param <T> the type of exception
      */
-    public static class InlineClause {
+    @RequiredArgsConstructor
+    public static class InlineClause<T extends Throwable> {
 
         /**
          * The exception that could be thrown.
          */
-        private final Exception contingency;
-
-        /**
-         * Creates an inline clause.
-         *
-         * @param throwable the exception that would be thrown
-         */
-        public InlineClause(final Exception throwable) {
-            contingency = throwable;
-        }
+        private final Lazy<T> contingency;
 
         /**
          * Checks the clause and throws the exception is if matches.
          *
          * @param be the condition to check
          *
-         * @throws java.lang.Exception if the clause is true
+         * @throws T if the clause is true
          */
-        public void should(final boolean be) throws Exception {
+        public void should(final boolean be) throws T {
             if (be) {
-                throw contingency;
+                throw contingency.value();
             }
         }
 
@@ -105,9 +91,9 @@ public class InlineExceptions {
          *
          * @param be the condition to check
          *
-         * @throws java.lang.Exception if the clause is true
+         * @throws T if the clause is true
          */
-        public void unless(final boolean be) throws Exception {
+        public void unless(final boolean be) throws T {
             should(!be);
         }
 
