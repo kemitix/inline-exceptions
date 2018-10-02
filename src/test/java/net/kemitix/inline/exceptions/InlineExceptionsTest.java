@@ -6,7 +6,7 @@ import org.junit.Test;
 public class InlineExceptionsTest implements WithAssertions {
 
     @Test
-    public void whenShouldIsTrue_ThenThrowSubject() {
+    public void whenShouldIsTrueThenThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .should(true))
@@ -14,7 +14,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenShouldIsFalse_ThenDoNotThrowSubject() {
+    public void whenShouldIsFalseThenDoNotThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .should(false))
@@ -22,7 +22,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenUnlessIsFalse_ThenThrowSubject() {
+    public void whenUnlessIsFalseThenThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .unless(false))
@@ -30,7 +30,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenUnlessIsTrue_ThenDoNotThrowSubject() {
+    public void whenUnlessIsTrueThenDoNotThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .unless(true))
@@ -38,7 +38,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenSourceIsNull_ThenShouldThrowError() {
+    public void whenSourceIsNullThenShouldThrowError() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(null))
                 .isInstanceOf(NullPointerException.class)
