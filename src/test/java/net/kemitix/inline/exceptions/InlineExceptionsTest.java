@@ -6,7 +6,7 @@ import org.junit.Test;
 public class InlineExceptionsTest implements WithAssertions {
 
     @Test
-    public void shouldThrowExceptionWhenShouldIsTrue() {
+    public void whenShouldIsTrue_ThenThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(ArrayIndexOutOfBoundsException.class, "pass")
                         .should(true))
@@ -14,7 +14,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void shouldNotThrowExceptionWhenShouldIsFalse() {
+    public void whenShouldIsFalse_ThenDoNotThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(ArrayIndexOutOfBoundsException.class, "pass")
                         .should(false))
@@ -22,7 +22,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void shouldThrowExceptionWhenUnlessIsFalse() {
+    public void whenUnlessIsFalse_ThenThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(ArrayIndexOutOfBoundsException.class, "pass")
                         .unless(false))
@@ -30,7 +30,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void shouldNotThrowExceptionWhenUnlessIsTrue() {
+    public void whenUnlessIsTrue_ThenDoNotThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(ArrayIndexOutOfBoundsException.class, "pass")
                         .unless(true))
@@ -38,14 +38,16 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void shouldThrowExceptionOnUtilityInstantiation() {
-        assertThatCode(InlineExceptions::new)
-                .isInstanceOf(UnsupportedOperationException.class);
+    public void whenThrowableIsNull_ThenShouldThrowError() {
+        assertThatCode(() -> InlineExceptions.doThrow(null, "message"))
+                .isInstanceOf(NullPointerException.class)
+                .hasMessageContaining("throwable");
     }
 
     @Test
-    public void shouldThrowInlineException() {
-        assertThatCode(() -> InlineExceptions.doThrow(null, null))
-                .isInstanceOf(InlineException.class);
+    public void whenMessageIsNull_ThenShouldThrowError() {
+        assertThatCode(() -> InlineExceptions.doThrow(ArrayIndexOutOfBoundsException.class, null))
+                .isInstanceOf(NullPointerException.class)
+                .hasMessageContaining("message");
     }
 }
