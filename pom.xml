@@ -20,6 +20,7 @@
         <junit.version>4.12</junit.version>
         <kemitix-checkstyle.version>4.1.1</kemitix-checkstyle.version>
         <mon.version>1.0.0</mon.version>
+        <lombok.version>1.18.2</lombok.version>
         <assertj.version>3.11.1</assertj.version>
     </properties>
 
@@ -37,6 +38,12 @@
     </scm>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>net.kemitix</groupId>
             <artifactId>mon</artifactId>
