@@ -1,6 +1,6 @@
 * INLINE-EXCEPTIONS
 
-  Optionally throw exceptions without adding an if-then branch that affects code
+**  Optionally throw exceptions without adding an if-then branch that affects code
   coverage.
 
   [[https://oss.sonatype.org/content/repositories/releases/net/kemitix/inline-exceptions][file:https://img.shields.io/nexus/r/https/oss.sonatype.org/net.kemitix/inline-exceptions.svg?style=for-the-badge]]
@@ -31,7 +31,7 @@
 
      //...
 
-     doThrow(MyException.class, "List is empty").should(list.isEmpty());
-     doThrow(MyException.class, "List is too big").unless(list.size() < 10);
+     doThrow(() -> new MyException("List is empty")).should(list.isEmpty());
+     doThrow(() -> new MyException("List is too big")).unless(list.size() < 10);
    #+END_SRC 
  

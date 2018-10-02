@@ -24,8 +24,10 @@ package net.kemitix.inline.exceptions;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import net.kemitix.mon.lazy.Lazy;
 
-import java.lang.reflect.InvocationTargetException;
+import java.util.function.Supplier;
 
 /**
  * Provides a method of throwing exceptions on certain conditions without adding
@@ -49,21 +51,13 @@ public class InlineExceptions {
      * Creates an inline clause that will throw in instance of the supplied
      * class with the message.
      *
-     * @param throwable the throwable class
-     * @param message   the message to add the the throwable
+     * @param source the supplier for the exception to throw
+     * @param <T> the type of the exception
      *
      * @return the inline clause
-     *
-     * @throws NoSuchMethodException if the throwable lacks a constructor that takes a single String parameter
-     * @throws IllegalAccessException if the class or constructor can not be seen from this context
-     * @throws InvocationTargetException if the constructor threw an exception
-     * @throws InstantiationException if the exception can not be instantiated
      */
-    public static InlineClause doThrow(
-            @NonNull final Class<? extends Exception> throwable,
-            @NonNull final String message
-    ) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-            return new InlineClause<>(throwable.getConstructor(String.class).newInstance(message));
+    public static <T extends Throwable> InlineClause<T> doThrow(@NonNull final Supplier<T> source) {
+            return new InlineClause<>(Lazy.of(source));
     }
 
     /**
@@ -71,21 +65,13 @@ public class InlineExceptions {
      *
      * @param <T> the type of exception
      */
+    @RequiredArgsConstructor
     public static class InlineClause<T extends Throwable> {
 
         /**
          * The exception that could be thrown.
          */
-        private final T contingency;
-
-        /**
-         * Creates an inline clause.
-         *
-         * @param throwable the exception that would be thrown
-         */
-        InlineClause(final T throwable) {
-            contingency = throwable;
-        }
+        private final Lazy<T> contingency;
 
         /**
          * Checks the clause and throws the exception is if matches.
@@ -96,7 +82,7 @@ public class InlineExceptions {
          */
         public void should(final boolean be) throws T {
             if (be) {
-                throw contingency;
+                throw contingency.value();
             }
         }
 
