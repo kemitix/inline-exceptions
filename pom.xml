@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>inline-exceptions</artifactId>
-    <version>DEV-SNAPSHOT</version>
+    <version>0.2.0</version>
 
     <name>Inline Exceptions</name>
     <description>Optionally throw exceptions without adding an if-then branch that affects code coverage</description>
