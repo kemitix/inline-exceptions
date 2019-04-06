@@ -67,13 +67,6 @@ pipeline {
                 }
             }
         }
-        stage('Build Java 13') {
-            steps {
-                withMaven(maven: 'maven', jdk: 'JDK 13') {
-                    sh "${mvn} clean verify -Djava.version=13"
-                }
-            }
-        }
     }
 }
 
