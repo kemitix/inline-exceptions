@@ -75,7 +75,7 @@ pipeline {
             }
         }
     }
-
+}
 
 private boolean isReleaseBranch() {
     return branchStartsWith('release/')
