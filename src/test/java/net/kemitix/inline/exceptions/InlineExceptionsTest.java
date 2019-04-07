@@ -1,12 +1,12 @@
 package net.kemitix.inline.exceptions;
 
 import org.assertj.core.api.WithAssertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class InlineExceptionsTest implements WithAssertions {
+class InlineExceptionsTest implements WithAssertions {
 
     @Test
-    public void whenShouldIsTrueThenThrowSubject() {
+    void whenShouldIsTrueThenThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .should(true))
@@ -14,7 +14,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenShouldIsFalseThenDoNotThrowSubject() {
+    void whenShouldIsFalseThenDoNotThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .should(false))
@@ -22,7 +22,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenUnlessIsFalseThenThrowSubject() {
+    void whenUnlessIsFalseThenThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .unless(false))
@@ -30,7 +30,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenUnlessIsTrueThenDoNotThrowSubject() {
+    void whenUnlessIsTrueThenDoNotThrowSubject() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(() -> new ArrayIndexOutOfBoundsException("pass"))
                         .unless(true))
@@ -38,7 +38,7 @@ public class InlineExceptionsTest implements WithAssertions {
     }
 
     @Test
-    public void whenSourceIsNullThenShouldThrowError() {
+    void whenSourceIsNullThenShouldThrowError() {
         assertThatCode(() ->
                 InlineExceptions.doThrow(null))
                 .isInstanceOf(NullPointerException.class)
