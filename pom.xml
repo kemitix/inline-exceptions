@@ -21,7 +21,7 @@
         <kemitix-checkstyle.version>4.1.1</kemitix-checkstyle.version>
         <mon.version>2.0.0</mon.version>
         <lombok.version>1.18.10</lombok.version>
-        <assertj.version>3.13.2</assertj.version>
+        <assertj.version>3.14.0</assertj.version>
     </properties>
 
     <url>https://github.com/kemitix/inline-exceptions</url>
